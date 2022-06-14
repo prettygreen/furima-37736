@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :last_name_kana,  format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
 
-  has_many :items
-  has_many :orders
+  # **先々の実装内容であるため、現時点ではコメントアウトしておく。**
+  # has_many :items
+  # has_many :orders 
 end
