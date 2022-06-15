@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   #get 'items/index'
   root to: "items#index"
 
-  resources :items,only: [:index, :new, :create, :destroy]
-  resources :users,only: [:destroy]
+  resources :items,only: [:index]
 end
