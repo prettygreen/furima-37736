@@ -54,37 +54,37 @@ RSpec.describe Item, type: :model do
       it 'priceが全角では出品できない' do
         @item.price = '１０００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
       it 'category_idが無くては出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it 'condition_idが無くては出品できない' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
       it 'postage_idが無くては出品できない' do
         @item.postage_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage must be other than 1")
+        expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
       it 'region_idが無くては出品できない' do
         @item.region_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Region must be other than 1")
+        expect(@item.errors.full_messages).to include("Region can't be blank")
       end
 
       it 'shipping_idが無くては出品できない' do
         @item.shipping_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping must be other than 1")
+        expect(@item.errors.full_messages).to include("Shipping can't be blank")
       end
 
     end
