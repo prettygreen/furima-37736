@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    #@items = Item.all
+    #商品一覧機能の際に実装するため今はコメントアウトしておく
   end
 
   def new
