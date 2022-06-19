@@ -18,5 +18,5 @@ class User < ApplicationRecord
 
   # **先々の実装内容であるため、現時点ではコメントアウトしておく。**
   # has_many :items
-  # has_many :orders 
+  # has_many :orders
 end
