@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    #@items = Item.all
-    #商品一覧機能の際に実装するため今はコメントアウトしておく
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
