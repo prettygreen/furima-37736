@@ -5,9 +5,11 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :region
   belongs_to :shipping
-  belongs_to :user
 
   has_one_attached :image
+  
+  belongs_to :user
+  has_one :order
 
   validates :image,        presence: true
   validates :name,         presence: true
@@ -22,6 +24,4 @@ class Item < ApplicationRecord
   validates :price,        inclusion: { in: 300..9_999_999 }
   validates :price,        format: { with: /\A[0-9]+\z/ }
 
-  # **先々の実装内容であるため、現時点ではコメントアウトしておく。**
-  # has_one :order
 end
