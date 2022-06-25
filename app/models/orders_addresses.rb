@@ -1,19 +1,20 @@
 class OrdersAddresses
   include ActiveModel::Model
-  attr_accessor :user,:item, :postcode, :region_id, :city, :block, :building, :phone_number, :order
+  attr_accessor :user,:item, :postcode, :region_id, :city, :block, :building, :phone_number, :order_id
 
-  #validates :user,         presence: true
-  #validates :item,         presence: true
+  #validates :user_id,         presence: true
+  #validates :item_id,         presence: true
   validates :postcode,     presence: true
   validates :region_id,    numericality: { other_than: 1, message: "can't be blank" }
   validates :city,         presence: true
   validates :block,        presence: true
-  #validates :building,     
-  validates :phone_number, format: { with: ^0\d{9,10}$ }
-  #validates :order,        presence: true
+  #validates :building     
+  validates :phone_number, format: { with: /\A[0-9]+\z/ }
+  #validates :order_id,        presence: true
 
   def save
-    @orders = Orders.create(user: user, item: item)
-    @addresses = Addresses.create(postcode: postcode, region_id: region_id, city: city, block: block, building: building, phone_number: phone_number, order: order)
+    Orders.create(user_id: user_id, item_id: item_id)
+    Addresses.create(postcode: postcode, region_id: region_id, city: city, block: block, building: building, phone_number: phone_number, order_id: order_id)
+    Item.create(name: name, text: text, category_id: category_id, condition_id: condition_id, postage_id: postage_id, region_id: region_id, shipping_id: shipping_id, price: price, user_id: current_user.id, image:image)
   end
 end
