@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :shipping
 
   has_one_attached :image
-  
+
   belongs_to :user
   has_one :order
 
@@ -23,5 +23,4 @@ class Item < ApplicationRecord
   validates :price,        numericality: true
   validates :price,        inclusion: { in: 300..9_999_999 }
   validates :price,        format: { with: /\A[0-9]+\z/ }
-
 end
